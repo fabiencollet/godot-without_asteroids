@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Assets/SFX/Propulsion/propulsion_loop.wav" type="AudioStream" id=1]
+[ext_resource path="res://Assets/Player/Propulsion.gd" type="Script" id=4]
+
+[node name="Propulsion" type="Node"]
+script = ExtResource( 4 )
+
+[node name="Propulsion_loop" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 1 )
+autoplay = true
+stream_paused = true
+bus = "SFX"
+[connection signal="finished" from="Propulsion_loop" to="." method="_on_Propulsion_loop_finished"]

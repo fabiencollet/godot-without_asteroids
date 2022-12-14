@@ -1,0 +1,193 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Scripts/Splash_Screen.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Menu/heart.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Fonts/game_winner_font.tres" type="DynamicFont" id=3]
+[ext_resource path="res://Assets/Menu/logo_godot.png" type="Texture" id=4]
+[ext_resource path="res://Scenes/Scene_Transition.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Background.tscn" type="PackedScene" id=6]
+
+[sub_resource type="Animation" id=1]
+resource_name = "splash_screen_anim"
+length = 6.0
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("CenterContainer/VBoxContainer/CenterContainer2/Logo:scale:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 1e-05, -0.25, 0, 0.25, 0, 1e-05, -0.25, 0, 0.421108, 0.0594423, 4.2, -0.381896, -0.045351, 0.0694109, 0.00110149, 3.9, -0.0708544, 0.00123763, 0.0683965, -0.00363803, 4, -0.103082, -0.0109973, 0.25, 0 ),
+"times": PoolRealArray( 3, 3.6, 4.2, 4.3, 4.5 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("CenterContainer/VBoxContainer/CenterContainer2/Logo:scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 1e-05, -0.25, 0, 0.25, 0, 1e-05, -0.25, 0, 0.452985, 0.0528008, 4.2, -0.433906, -0.0010581, 0.0660555, -0.0010581, 3.9, -0.0591103, 0.000315428, 0.0902069, 0.000315428, 4, -0.103082, -0.00327754, 0.25, 0 ),
+"times": PoolRealArray( 3, 3.6, 4.2, 4.3, 4.5 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("CenterContainer/VBoxContainer/CenterContainer2/Logo:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.468084, 1.45885, 365, -0.447327, 2.242, 0.0291456, 0.122223, 358, -0.0523995, 0.112427, 0.0432307, -0.0758667, 360, -0.101404, -0.0926514, 0.25, 0 ),
+"times": PoolRealArray( 3, 3.6, 4.2, 4.3, 4.5 )
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("CenterContainer/VBoxContainer/VBoxContainer/HBoxContainer/Label_Heart:percent_visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 3, 4.8, 5.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0, 1.0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("CenterContainer/VBoxContainer/VBoxContainer/HBoxContainer/CenterContainer/heart:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 3, 5.1, 5.4, 5.5, 5.7 ),
+"transitions": PoolRealArray( 1, 2.37841, 0.420448, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 1e-05, 1e-05 ), Vector2( 4.3, 4.3 ), Vector2( 3.8, 3.8 ), Vector2( 4, 4 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("CenterContainer/VBoxContainer/VBoxContainer/Label_Heart2:percent_visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 3, 5.5, 6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0, 1.0 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("ColorRect:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.4, 2.5, 6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[node name="Splash_Screen" type="Node"]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_horizontal_guides_": [ 933.174 ]
+}
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 1.7
+one_shot = true
+
+[node name="TimerTransition" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="Background" parent="." instance=ExtResource( 6 )]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+method_call_mode = 1
+anims/splash_screen_anim = SubResource( 1 )
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+margin_left = 429.0
+margin_top = 205.0
+margin_right = 771.0
+margin_bottom = 695.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer2" type="CenterContainer" parent="CenterContainer/VBoxContainer"]
+margin_right = 342.0
+margin_bottom = 342.0
+rect_min_size = Vector2( 342, 342 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Logo" type="Sprite" parent="CenterContainer/VBoxContainer/CenterContainer2"]
+position = Vector2( 171, 171 )
+scale = Vector2( 1e-05, 1e-05 )
+texture = ExtResource( 4 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer"]
+margin_top = 346.0
+margin_right = 342.0
+margin_bottom = 490.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/VBoxContainer"]
+margin_right = 342.0
+margin_bottom = 70.0
+
+[node name="Label_Heart" type="Label" parent="CenterContainer/VBoxContainer/VBoxContainer/HBoxContainer"]
+margin_right = 258.0
+margin_bottom = 70.0
+custom_fonts/font = ExtResource( 3 )
+text = "Made With"
+percent_visible = 0.0
+
+[node name="CenterContainer" type="CenterContainer" parent="CenterContainer/VBoxContainer/VBoxContainer/HBoxContainer"]
+margin_left = 262.0
+margin_right = 342.0
+margin_bottom = 70.0
+rect_min_size = Vector2( 80, 0 )
+
+[node name="heart" type="Sprite" parent="CenterContainer/VBoxContainer/VBoxContainer/HBoxContainer/CenterContainer"]
+position = Vector2( 40, 30 )
+scale = Vector2( 1e-05, 1e-05 )
+texture = ExtResource( 2 )
+
+[node name="Label_Heart2" type="Label" parent="CenterContainer/VBoxContainer/VBoxContainer"]
+margin_top = 74.0
+margin_right = 342.0
+margin_bottom = 144.0
+custom_fonts/font = ExtResource( 3 )
+text = "And Godot"
+align = 1
+percent_visible = 0.0
+
+[node name="Transition" parent="." instance=ExtResource( 5 )]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.0901961, 0.0901961, 0.0980392, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TimerDelta" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="TimerTransition" to="." method="_on_TimerTransition_timeout"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="timeout" from="TimerDelta" to="." method="_on_TimerDelta_timeout"]

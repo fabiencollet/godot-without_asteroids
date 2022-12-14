@@ -1,0 +1,13 @@
+[remap]
+
+importer="image"
+type="Image"
+path="res://.import/bg_splashscreen.png-0d96033a9be6795c572de90683f69960.image"
+
+[deps]
+
+source_file="res://Assets/Menu/bg_splashscreen.png"
+dest_files=[ "res://.import/bg_splashscreen.png-0d96033a9be6795c572de90683f69960.image" ]
+
+[params]
+

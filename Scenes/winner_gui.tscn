@@ -1,0 +1,86 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Assets/Fonts/game_winner_font.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Scripts/Winner_gui.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/player_score_gui.tscn" type="PackedScene" id=3]
+[ext_resource path="res://GUI/main_theme.tres" type="Theme" id=4]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Anim_in"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "Anim_out"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[node name="RoundWinnerContainer" type="CenterContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_right = 1200.0
+margin_bottom = 900.0
+rect_min_size = Vector2( 1200, 900 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+PlayerScore = ExtResource( 3 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_left = 250.0
+margin_top = 398.0
+margin_right = 950.0
+margin_bottom = 502.0
+
+[node name="LabelWinner" type="Label" parent="VBoxContainer"]
+show_behind_parent = true
+margin_right = 700.0
+margin_bottom = 70.0
+rect_min_size = Vector2( 700, 0 )
+custom_fonts/font = ExtResource( 1 )
+text = "Player 1 Win the Round !! "
+align = 1
+valign = 1
+autowrap = true
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+margin_top = 74.0
+margin_right = 700.0
+margin_bottom = 104.0
+rect_min_size = Vector2( 0, 30 )
+theme = ExtResource( 4 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Anim_in = SubResource( 1 )
+anims/Anim_out = SubResource( 2 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.9
+one_shot = true
+
+[node name="TimerPlayerIn" type="Timer" parent="."]
+wait_time = 0.1
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

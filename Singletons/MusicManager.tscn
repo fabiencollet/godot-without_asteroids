@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Assets/Music/Space_01_intro.wav" type="AudioStream" id=1]
+[ext_resource path="res://Assets/Music/Space_01_loop.wav" type="AudioStream" id=2]
+[ext_resource path="res://Singletons/MusicManager.gd" type="Script" id=3]
+
+[node name="MusicManager" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="AudioIntro" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 1 )
+volume_db = -4.0
+bus = "Music"
+
+[node name="AudioLoop" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+bus = "Music"
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+[connection signal="finished" from="AudioIntro" to="." method="_on_AudioIntro_finished"]
+[connection signal="finished" from="AudioLoop" to="." method="_on_AudioLoop_finished"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

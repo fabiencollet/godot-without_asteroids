@@ -1,0 +1,4 @@
+# LOG 0.9.5
+- Increase the spaceship angular velocity by 50%
+- Decrease the time to hold the big shoot
+- adding joypad to left and right to turn the spaceship

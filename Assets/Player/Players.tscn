@@ -1,0 +1,68 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://Assets/Player/Players.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Player/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Explosion.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Assets/Bullet/Bullet.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/SoundManager.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Camera.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Assets/Menu/timer-Sheet.png" type="Texture" id=7]
+[ext_resource path="res://Scenes/Pause_Menu.tscn" type="PackedScene" id=8]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 7 )
+region = Rect2( 0, 0, 139, 49 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 7 )
+region = Rect2( 139, 0, 139, 49 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 7 )
+region = Rect2( 278, 0, 139, 49 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 7 )
+region = Rect2( 417, 0, 139, 49 )
+
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ) ],
+"loop": false,
+"name": "default",
+"speed": 1.0
+} ]
+
+[node name="Players" type="Node2D"]
+script = ExtResource( 1 )
+Player = ExtResource( 2 )
+Bullet = ExtResource( 4 )
+Explosion = ExtResource( 3 )
+PauseMenu = ExtResource( 8 )
+
+[node name="Camera2D" parent="." instance=ExtResource( 6 )]
+
+[node name="SoundManager" parent="." instance=ExtResource( 5 )]
+
+[node name="bullets_grp" type="Node" parent="."]
+
+[node name="players_grp" type="Node" parent="."]
+
+[node name="TimerRestorePause" type="Timer" parent="."]
+wait_time = 4.0
+one_shot = true
+
+[node name="AnimatedTimer" type="AnimatedSprite" parent="."]
+visible = false
+position = Vector2( 600, 450 )
+scale = Vector2( 3, 3 )
+frames = SubResource( 5 )
+frame = 3
+
+[node name="TimerTransition" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[connection signal="timeout" from="TimerRestorePause" to="." method="_on_TimerRestorePause_timeout"]
+[connection signal="animation_finished" from="AnimatedTimer" to="." method="_on_AnimatedTimer_animation_finished"]
+[connection signal="timeout" from="TimerTransition" to="." method="_on_TimerTransition_timeout"]

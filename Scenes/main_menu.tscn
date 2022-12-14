@@ -1,0 +1,778 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://Scripts/main_menu.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Player/Players.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scripts/Rigid_GUI.gd" type="Script" id=3]
+[ext_resource path="res://Scenes/Scene_Transition.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Background.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Assets/Menu/title.png" type="Texture" id=8]
+[ext_resource path="res://GUI/main_theme.tres" type="Theme" id=10]
+
+[sub_resource type="PhysicsMaterial" id=1]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 129, 64 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 80, 20 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 82, 33 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 82, 37 )
+
+[sub_resource type="RectangleShape2D" id=11]
+extents = Vector2( 82, 48 )
+
+[sub_resource type="StyleBoxFlat" id=9]
+bg_color = Color( 0.952941, 0.941176, 0.909804, 1 )
+border_width_top = 2
+border_width_bottom = 2
+border_color = Color( 0.952941, 0.941176, 0.909804, 1 )
+
+[sub_resource type="StyleBoxFlat" id=10]
+bg_color = Color( 0.952941, 0.941176, 0.909804, 1 )
+
+[sub_resource type="Animation" id=6]
+resource_name = "Anim_in"
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("CenterContainer/TitleBody/CollisionShape2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 3, 0.5, 1, 0.5 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 1e-05 ), Vector2( 1.2, 0.9 ), Vector2( 0.9, 1.2 ), Vector2( 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CenterContainer/PlayerBody/B_Play:rect_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 3, 0.5, 1, 0.5 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 1e-05 ), Vector2( 1e-05, 1e-05 ), Vector2( 1.2, 0.9 ), Vector2( 0.9, 1.2 ), Vector2( 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("CenterContainer/PlayerBody2/VBoxContainer:rect_scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 3, 0.5, 1, 0.5 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 1e-05 ), Vector2( 1e-05, 1e-05 ), Vector2( 1.2, 0.9 ), Vector2( 0.9, 1.2 ), Vector2( 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("CenterContainer/PlayerBody3/VBoxContainer:rect_scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.3, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 3, 0.5, 1, 0.5 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 1e-05 ), Vector2( 1e-05, 1e-05 ), Vector2( 1.2, 0.9 ), Vector2( 0.9, 1.2 ), Vector2( 1, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("CenterContainer/PlayerBody4/B_Quit:rect_scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.6, 0.8, 0.9, 1 ),
+"transitions": PoolRealArray( 1, 3, 0.5, 1, 0.5 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 1e-05 ), Vector2( 1e-05, 1e-05 ), Vector2( 1.2, 0.9 ), Vector2( 0.9, 1.2 ), Vector2( 1, 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("CenterContainer/PlayerBody5/VBoxContainer:rect_scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.4, 0.6, 0.7, 0.8 ),
+"transitions": PoolRealArray( 1, 3, 0.5, 1, 0.5 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 1e-05 ), Vector2( 1e-05, 1e-05 ), Vector2( 1.2, 0.9 ), Vector2( 0.9, 1.2 ), Vector2( 1, 1 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("CenterContainer/PlayerBody6/VBoxContainer:rect_scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.5, 0.7, 0.8, 0.9 ),
+"transitions": PoolRealArray( 1, 3, 0.5, 1, 0.5 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 1e-05 ), Vector2( 1e-05, 1e-05 ), Vector2( 1.2, 0.9 ), Vector2( 0.9, 1.2 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "Anim_out_to_play"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/path = NodePath("CenterContainer/TitleBody/CollisionShape2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 3, 2 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1e-05, 1e-05 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CenterContainer/PlayerBody2/VBoxContainer:rect_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.3 ),
+"transitions": PoolRealArray( 1, 3, 2 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 1e-05, 1e-05 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("CenterContainer/PlayerBody3/VBoxContainer:rect_scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 3, 2 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 1e-05, 1e-05 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("CenterContainer/PlayerBody4/B_Quit:rect_scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.5, 0.7 ),
+"transitions": PoolRealArray( 1, 3, 2 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 1e-05, 1e-05 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("CenterContainer/PlayerBody5/VBoxContainer:rect_scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.3, 0.5 ),
+"transitions": PoolRealArray( 1, 3, 2 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 1e-05, 1e-05 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("CenterContainer/PlayerBody6/VBoxContainer:rect_scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 3, 2 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 1e-05, 1e-05 ) ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "Anim_out_to_quit"
+length = 0.7
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("CenterContainer/TitleBody/CollisionShape2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 3, 2 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1e-05, 1e-05 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CenterContainer/PlayerBody/B_Play:rect_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.1, 0.3 ),
+"transitions": PoolRealArray( 3, 2 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1e-05, 1e-05 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("CenterContainer/PlayerBody2/VBoxContainer:rect_scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.2, 0.4 ),
+"transitions": PoolRealArray( 3, 2 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1e-05, 1e-05 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("CenterContainer/PlayerBody3/VBoxContainer:rect_scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.3, 0.5 ),
+"transitions": PoolRealArray( 3, 2 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1e-05, 1e-05 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("CenterContainer/PlayerBody5/VBoxContainer:rect_scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0.4, 0.6 ),
+"transitions": PoolRealArray( 3, 2 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1e-05, 1e-05 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("CenterContainer/PlayerBody6/VBoxContainer:rect_scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.5, 0.7 ),
+"transitions": PoolRealArray( 1, 3, 2 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 1e-05, 1e-05 ) ]
+}
+
+[node name="MainMenu" type="Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+theme = ExtResource( 10 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_vertical_guides_": [ 600.008 ]
+}
+Players = ExtResource( 2 )
+
+[node name="Background" parent="." instance=ExtResource( 7 )]
+
+[node name="Players_grp" type="Node2D" parent="."]
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="TitleBody" type="RigidBody2D" parent="CenterContainer"]
+position = Vector2( 600, 150 )
+collision_layer = 2
+collision_mask = 7
+mass = 10.0
+physics_material_override = SubResource( 1 )
+gravity_scale = 0.0
+script = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CenterContainer/TitleBody"]
+scale = Vector2( 1e-05, 1e-05 )
+shape = SubResource( 2 )
+
+[node name="TextureRect" type="TextureRect" parent="CenterContainer/TitleBody/CollisionShape2D"]
+margin_right = 129.0
+margin_bottom = 64.0
+rect_scale = Vector2( 2, 2 )
+rect_pivot_offset = Vector2( 129, 64 )
+texture = ExtResource( 8 )
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayerBody" type="RigidBody2D" parent="CenterContainer"]
+position = Vector2( 600, 300 )
+collision_layer = 2
+collision_mask = 3
+mass = 1.5
+physics_material_override = SubResource( 1 )
+gravity_scale = 0.0
+script = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CenterContainer/PlayerBody"]
+shape = SubResource( 3 )
+
+[node name="B_Play" type="Button" parent="CenterContainer/PlayerBody"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -80.0
+margin_top = -20.0
+margin_right = 80.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 160, 40 )
+rect_scale = Vector2( 1e-05, 1e-05 )
+rect_pivot_offset = Vector2( 80, 20 )
+theme = ExtResource( 10 )
+text = "Play"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayerBody2" type="RigidBody2D" parent="CenterContainer"]
+position = Vector2( 600, 408 )
+collision_layer = 2
+collision_mask = 3
+mass = 2.0
+physics_material_override = SubResource( 1 )
+gravity_scale = 0.0
+script = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CenterContainer/PlayerBody2"]
+shape = SubResource( 4 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/PlayerBody2"]
+margin_left = -86.0
+margin_top = -40.0
+margin_right = 87.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 1, 1 )
+rect_scale = Vector2( 1e-05, 1e-05 )
+rect_pivot_offset = Vector2( 86, 40 )
+rect_clip_content = true
+
+[node name="Label" type="Label" parent="CenterContainer/PlayerBody2/VBoxContainer"]
+margin_right = 173.0
+margin_bottom = 28.0
+theme = ExtResource( 10 )
+text = "Victories to win :"
+
+[node name="HSeparator" type="HSeparator" parent="CenterContainer/PlayerBody2/VBoxContainer"]
+margin_top = 32.0
+margin_right = 173.0
+margin_bottom = 36.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/PlayerBody2/VBoxContainer"]
+margin_top = 40.0
+margin_right = 173.0
+margin_bottom = 72.0
+theme = ExtResource( 10 )
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="B_min_win" type="Button" parent="CenterContainer/PlayerBody2/VBoxContainer/HBoxContainer"]
+margin_left = 34.0
+margin_right = 68.0
+margin_bottom = 32.0
+focus_mode = 0
+theme = ExtResource( 10 )
+enabled_focus_mode = 0
+text = "  <  "
+
+[node name="LabelVictory" type="Label" parent="CenterContainer/PlayerBody2/VBoxContainer/HBoxContainer"]
+margin_left = 72.0
+margin_top = 2.0
+margin_right = 100.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 28, 0 )
+theme = ExtResource( 10 )
+text = "4"
+align = 1
+
+[node name="B_plus_win" type="Button" parent="CenterContainer/PlayerBody2/VBoxContainer/HBoxContainer"]
+margin_left = 104.0
+margin_right = 138.0
+margin_bottom = 32.0
+focus_mode = 0
+theme = ExtResource( 10 )
+enabled_focus_mode = 0
+text = "  >  "
+
+[node name="PlayerBody3" type="RigidBody2D" parent="CenterContainer"]
+position = Vector2( 600, 500 )
+collision_layer = 2
+collision_mask = 3
+mass = 2.0
+physics_material_override = SubResource( 1 )
+gravity_scale = 0.0
+script = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CenterContainer/PlayerBody3"]
+shape = SubResource( 5 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/PlayerBody3"]
+margin_left = -88.0
+margin_top = -36.0
+margin_right = 88.0
+margin_bottom = 36.0
+rect_scale = Vector2( 1e-05, 1e-05 )
+rect_pivot_offset = Vector2( 88, 36 )
+rect_clip_content = true
+theme = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CenterContainer/PlayerBody3/VBoxContainer"]
+margin_right = 176.0
+margin_bottom = 28.0
+theme = ExtResource( 10 )
+text = "Number players :"
+
+[node name="HSeparator2" type="HSeparator" parent="CenterContainer/PlayerBody3/VBoxContainer"]
+margin_top = 32.0
+margin_right = 176.0
+margin_bottom = 36.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/PlayerBody3/VBoxContainer"]
+margin_top = 40.0
+margin_right = 176.0
+margin_bottom = 72.0
+theme = ExtResource( 10 )
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="B_min_player" type="Button" parent="CenterContainer/PlayerBody3/VBoxContainer/HBoxContainer"]
+margin_left = 36.0
+margin_right = 70.0
+margin_bottom = 32.0
+focus_mode = 0
+theme = ExtResource( 10 )
+enabled_focus_mode = 0
+keep_pressed_outside = true
+text = "  <  "
+
+[node name="LabelPlayer" type="Label" parent="CenterContainer/PlayerBody3/VBoxContainer/HBoxContainer"]
+margin_left = 74.0
+margin_top = 2.0
+margin_right = 102.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 28, 0 )
+theme = ExtResource( 10 )
+text = "4"
+align = 1
+
+[node name="B_plus_player" type="Button" parent="CenterContainer/PlayerBody3/VBoxContainer/HBoxContainer"]
+margin_left = 106.0
+margin_right = 140.0
+margin_bottom = 32.0
+focus_mode = 0
+theme = ExtResource( 10 )
+enabled_focus_mode = 0
+keep_pressed_outside = true
+text = "  >  "
+
+[node name="PlayerBody5" type="RigidBody2D" parent="CenterContainer"]
+position = Vector2( 600, 595 )
+collision_layer = 2
+collision_mask = 3
+mass = 2.0
+physics_material_override = SubResource( 1 )
+gravity_scale = 0.0
+script = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CenterContainer/PlayerBody5"]
+shape = SubResource( 5 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/PlayerBody5"]
+margin_left = -88.0
+margin_top = -36.0
+margin_right = 88.0
+margin_bottom = 36.0
+rect_scale = Vector2( 1e-05, 1e-05 )
+rect_pivot_offset = Vector2( 88, 36 )
+theme = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CenterContainer/PlayerBody5/VBoxContainer"]
+margin_right = 176.0
+margin_bottom = 28.0
+theme = ExtResource( 10 )
+text = "Game Mode :"
+align = 1
+
+[node name="HSeparator2" type="HSeparator" parent="CenterContainer/PlayerBody5/VBoxContainer"]
+margin_top = 32.0
+margin_right = 176.0
+margin_bottom = 36.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/PlayerBody5/VBoxContainer"]
+margin_top = 40.0
+margin_right = 176.0
+margin_bottom = 72.0
+theme = ExtResource( 10 )
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="B_min_mode" type="Button" parent="CenterContainer/PlayerBody5/VBoxContainer/HBoxContainer"]
+margin_left = 19.0
+margin_right = 53.0
+margin_bottom = 32.0
+focus_mode = 0
+theme = ExtResource( 10 )
+enabled_focus_mode = 0
+keep_pressed_outside = true
+text = "  <  "
+
+[node name="LabelMode" type="Label" parent="CenterContainer/PlayerBody5/VBoxContainer/HBoxContainer"]
+margin_left = 57.0
+margin_top = 2.0
+margin_right = 119.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 28, 0 )
+theme = ExtResource( 10 )
+text = "Shoot"
+align = 1
+valign = 1
+
+[node name="B_plus_mode" type="Button" parent="CenterContainer/PlayerBody5/VBoxContainer/HBoxContainer"]
+margin_left = 123.0
+margin_right = 157.0
+margin_bottom = 32.0
+focus_mode = 0
+theme = ExtResource( 10 )
+enabled_focus_mode = 0
+keep_pressed_outside = true
+text = "  >  "
+
+[node name="PlayerBody6" type="RigidBody2D" parent="CenterContainer"]
+position = Vector2( 600, 698 )
+collision_layer = 2
+collision_mask = 3
+mass = 2.0
+physics_material_override = SubResource( 1 )
+gravity_scale = 0.0
+script = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CenterContainer/PlayerBody6"]
+position = Vector2( 0, 5 )
+shape = SubResource( 11 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/PlayerBody6"]
+margin_left = -88.0
+margin_top = -47.0
+margin_right = 91.0
+margin_bottom = 57.0
+rect_scale = Vector2( 1e-05, 1e-05 )
+rect_pivot_offset = Vector2( 88, 58 )
+rect_clip_content = true
+theme = ExtResource( 10 )
+
+[node name="Label" type="Label" parent="CenterContainer/PlayerBody6/VBoxContainer"]
+margin_right = 184.0
+margin_bottom = 28.0
+theme = ExtResource( 10 )
+text = "Volume audio:"
+align = 1
+
+[node name="HSeparator2" type="HSeparator" parent="CenterContainer/PlayerBody6/VBoxContainer"]
+margin_top = 32.0
+margin_right = 184.0
+margin_bottom = 36.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/PlayerBody6/VBoxContainer"]
+margin_top = 40.0
+margin_right = 184.0
+margin_bottom = 70.0
+theme = ExtResource( 10 )
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LabelVolume2" type="Label" parent="CenterContainer/PlayerBody6/VBoxContainer/HBoxContainer"]
+margin_top = 1.0
+margin_right = 56.0
+margin_bottom = 29.0
+rect_min_size = Vector2( 55, 0 )
+theme = ExtResource( 10 )
+text = "Music"
+align = 1
+valign = 1
+
+[node name="HSlider" type="HSlider" parent="CenterContainer/PlayerBody6/VBoxContainer/HBoxContainer"]
+margin_left = 60.0
+margin_right = 140.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 80, 30 )
+custom_styles/slider = SubResource( 9 )
+custom_styles/grabber_area = SubResource( 10 )
+min_value = -80.0
+max_value = 8.0
+step = 2.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LabelVolume" type="Label" parent="CenterContainer/PlayerBody6/VBoxContainer/HBoxContainer"]
+margin_left = 144.0
+margin_top = 1.0
+margin_right = 184.0
+margin_bottom = 29.0
+rect_min_size = Vector2( 40, 0 )
+theme = ExtResource( 10 )
+text = "0"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CenterContainer/PlayerBody6/VBoxContainer"]
+margin_top = 74.0
+margin_right = 184.0
+margin_bottom = 104.0
+theme = ExtResource( 10 )
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LabelSFX" type="Label" parent="CenterContainer/PlayerBody6/VBoxContainer/HBoxContainer2"]
+margin_top = 1.0
+margin_right = 55.0
+margin_bottom = 29.0
+rect_min_size = Vector2( 55, 0 )
+theme = ExtResource( 10 )
+text = "SFX"
+align = 1
+valign = 1
+
+[node name="HSlider_SFX" type="HSlider" parent="CenterContainer/PlayerBody6/VBoxContainer/HBoxContainer2"]
+margin_left = 59.0
+margin_right = 139.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 80, 30 )
+custom_styles/slider = SubResource( 9 )
+custom_styles/grabber_area = SubResource( 10 )
+min_value = -80.0
+max_value = 8.0
+step = 2.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LabelSFXValue" type="Label" parent="CenterContainer/PlayerBody6/VBoxContainer/HBoxContainer2"]
+margin_left = 143.0
+margin_top = 1.0
+margin_right = 183.0
+margin_bottom = 29.0
+rect_min_size = Vector2( 40, 0 )
+theme = ExtResource( 10 )
+text = "0"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayerBody4" type="RigidBody2D" parent="CenterContainer"]
+position = Vector2( 600, 800 )
+collision_layer = 2
+collision_mask = 3
+mass = 1.5
+physics_material_override = SubResource( 1 )
+gravity_scale = 0.0
+script = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CenterContainer/PlayerBody4"]
+shape = SubResource( 3 )
+
+[node name="B_Quit" type="Button" parent="CenterContainer/PlayerBody4"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -80.0
+margin_top = -20.0
+margin_right = 80.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 160, 40 )
+rect_scale = Vector2( 1e-05, 1e-05 )
+rect_pivot_offset = Vector2( 80, 20 )
+theme = ExtResource( 10 )
+text = "Quit"
+
+[node name="TimerResetPlayer" type="Timer" parent="."]
+
+[node name="TimerLaunchGame" type="Timer" parent="."]
+wait_time = 1.5
+one_shot = true
+
+[node name="Transition" parent="." instance=ExtResource( 6 )]
+
+[node name="TimerInitPlayer" type="Timer" parent="."]
+one_shot = true
+
+[node name="TimerQuit" type="Timer" parent="."]
+wait_time = 1.5
+one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Anim_in = SubResource( 6 )
+anims/Anim_out_to_play = SubResource( 7 )
+anims/Anim_out_to_quit = SubResource( 8 )
+
+[node name="TimerMenuAnimation" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
+[connection signal="focus_exited" from="CenterContainer/PlayerBody/B_Play" to="." method="_on_B_Play_focus_exited"]
+[connection signal="pressed" from="CenterContainer/PlayerBody/B_Play" to="." method="_on_B_Play_pressed"]
+[connection signal="focus_exited" from="CenterContainer/PlayerBody2/VBoxContainer/HBoxContainer/B_min_win" to="." method="_on_B_min_win_focus_exited"]
+[connection signal="pressed" from="CenterContainer/PlayerBody2/VBoxContainer/HBoxContainer/B_min_win" to="." method="_on_B_min_win_pressed"]
+[connection signal="focus_exited" from="CenterContainer/PlayerBody2/VBoxContainer/HBoxContainer/B_plus_win" to="." method="_on_B_plus_win_focus_exited"]
+[connection signal="pressed" from="CenterContainer/PlayerBody2/VBoxContainer/HBoxContainer/B_plus_win" to="." method="_on_B_plus_win_pressed"]
+[connection signal="focus_exited" from="CenterContainer/PlayerBody3/VBoxContainer/HBoxContainer/B_min_player" to="." method="_on_B_min_player_focus_exited"]
+[connection signal="pressed" from="CenterContainer/PlayerBody3/VBoxContainer/HBoxContainer/B_min_player" to="." method="_on_B_min_player_pressed"]
+[connection signal="focus_exited" from="CenterContainer/PlayerBody3/VBoxContainer/HBoxContainer/B_plus_player" to="." method="_on_B_plus_player_focus_exited"]
+[connection signal="pressed" from="CenterContainer/PlayerBody3/VBoxContainer/HBoxContainer/B_plus_player" to="." method="_on_B_plus_player_pressed"]
+[connection signal="pressed" from="CenterContainer/PlayerBody5/VBoxContainer/HBoxContainer/B_min_mode" to="." method="_on_B_min_mode_pressed"]
+[connection signal="pressed" from="CenterContainer/PlayerBody5/VBoxContainer/HBoxContainer/B_plus_mode" to="." method="_on_B_plus_mode_pressed"]
+[connection signal="value_changed" from="CenterContainer/PlayerBody6/VBoxContainer/HBoxContainer/HSlider" to="." method="_on_HSlider_value_changed"]
+[connection signal="value_changed" from="CenterContainer/PlayerBody6/VBoxContainer/HBoxContainer2/HSlider_SFX" to="." method="_on_HSlider_SFX_value_changed"]
+[connection signal="button_up" from="CenterContainer/PlayerBody4/B_Quit" to="." method="_on_B_Quit_button_up"]
+[connection signal="focus_exited" from="CenterContainer/PlayerBody4/B_Quit" to="." method="_on_B_Quit_focus_exited"]
+[connection signal="timeout" from="TimerResetPlayer" to="." method="_on_TimerResetPlayer_timeout"]
+[connection signal="timeout" from="TimerLaunchGame" to="." method="_on_TimerLaunchGame_timeout"]
+[connection signal="timeout" from="TimerInitPlayer" to="." method="_on_TimerInitPlayer_timeout"]
+[connection signal="timeout" from="TimerQuit" to="." method="_on_TimerQuit_timeout"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="timeout" from="TimerMenuAnimation" to="." method="_on_TimerMenuAnimation_timeout"]

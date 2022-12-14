@@ -1,0 +1,72 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Assets/Fonts/round_winner_font.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Scripts/player_score_gui.gd" type="Script" id=2]
+[ext_resource path="res://Assets/Menu/star_spriteframes.tres" type="SpriteFrames" id=3]
+[ext_resource path="res://Assets/Player/player_16_1.png" type="Texture" id=4]
+
+[node name="HBoxContainer" type="HBoxContainer"]
+margin_right = 701.0
+margin_bottom = 60.0
+rect_pivot_offset = Vector2( 350, 16 )
+alignment = 1
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterPlayer" type="CenterContainer" parent="."]
+use_parent_material = true
+margin_left = 143.0
+margin_right = 175.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 32, 32 )
+
+[node name="PlayerSprite_GUI" type="Sprite" parent="CenterPlayer"]
+position = Vector2( 16, 25 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 4 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 179.0
+margin_top = 9.0
+margin_right = 379.0
+margin_bottom = 51.0
+rect_min_size = Vector2( 200, 0 )
+custom_fonts/font = ExtResource( 1 )
+text = "Player_0"
+align = 1
+valign = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+margin_left = 383.0
+margin_right = 423.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 40, 32 )
+
+[node name="CenterContainer" type="CenterContainer" parent="HBoxContainer"]
+margin_right = 40.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 40, 32 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="HBoxContainer/CenterContainer"]
+position = Vector2( 0, 25 )
+scale = Vector2( 2, 2 )
+frames = ExtResource( 3 )
+offset = Vector2( 8, 0 )
+
+[node name="LabelCount" type="Label" parent="."]
+margin_left = 427.0
+margin_top = 9.0
+margin_right = 557.0
+margin_bottom = 51.0
+rect_min_size = Vector2( 130, 0 )
+custom_fonts/font = ExtResource( 1 )
+text = "Score"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="TimerStar" type="Timer" parent="."]
+one_shot = true
+[connection signal="timeout" from="TimerStar" to="." method="_on_TimerStar_timeout"]
