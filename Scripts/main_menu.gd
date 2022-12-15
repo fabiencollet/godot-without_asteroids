@@ -118,11 +118,6 @@ func _on_TimerQuit_timeout():
 	get_tree().quit()
 
 
-func _on_B_Quit_button_up():
-	$AnimationPlayer.play("Anim_out_to_quit")
-	$CenterContainer/PlayerBody4/B_Quit.disabled = true
-
-
 func _on_B_Quit_focus_exited():
 	$AnimationPlayer.play("Anim_out_to_quit")
 	$CenterContainer/PlayerBody4/B_Quit.disabled = true
@@ -130,7 +125,7 @@ func _on_B_Quit_focus_exited():
 
 func _on_B_Play_focus_exited():
 	$AnimationPlayer.play("Anim_out_to_play")
-	$CenterContainer/PlayerBody/B_Play.disabled = true 
+	$CenterContainer/PlayerBody/B_Play.disabled = true
 	$CenterContainer/PlayerBody/B_Play.grab_focus()
 
 func _on_TimerMenuAnimation_timeout():
@@ -191,3 +186,6 @@ func _on_HSlider_SFX_value_changed(value):
 	set_sfx_volume(value)
 	slider_sfx.focus_mode = 0
 
+func _on_B_Quit_pressed():
+	$AnimationPlayer.play("Anim_out_to_quit")
+	$CenterContainer/PlayerBody4/B_Quit.disabled = true

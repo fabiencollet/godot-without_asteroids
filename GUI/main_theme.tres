@@ -30,13 +30,13 @@ border_width_right = 4
 [resource]
 default_font = ExtResource( 1 )
 Button/colors/font_color = Color( 0.952941, 0.941176, 0.909804, 1 )
-Button/colors/font_color_disabled = Color( 0.952941, 0.941176, 0.909804, 1 )
+Button/colors/font_color_disabled = Color( 0.0901961, 0.0901961, 0.0980392, 1 )
 Button/colors/font_color_focus = Color( 0.0901961, 0.0901961, 0.0980392, 1 )
 Button/colors/font_color_hover = Color( 0.0901961, 0.0901961, 0.0980392, 1 )
 Button/colors/font_color_pressed = Color( 0.952941, 0.941176, 0.909804, 1 )
 Button/constants/hseparation = 1
 Button/fonts/font = ExtResource( 1 )
-Button/styles/disabled = ExtResource( 3 )
+Button/styles/disabled = ExtResource( 2 )
 Button/styles/focus = ExtResource( 2 )
 Button/styles/hover = ExtResource( 2 )
 Button/styles/normal = ExtResource( 3 )

@@ -342,11 +342,10 @@ margin_bottom = 20.0
 rect_min_size = Vector2( 160, 40 )
 rect_scale = Vector2( 1e-05, 1e-05 )
 rect_pivot_offset = Vector2( 80, 20 )
+focus_mode = 0
 theme = ExtResource( 10 )
+enabled_focus_mode = 0
 text = "Play"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="PlayerBody2" type="RigidBody2D" parent="CenterContainer"]
 position = Vector2( 600, 408 )
@@ -727,6 +726,7 @@ margin_bottom = 20.0
 rect_min_size = Vector2( 160, 40 )
 rect_scale = Vector2( 1e-05, 1e-05 )
 rect_pivot_offset = Vector2( 80, 20 )
+focus_mode = 0
 theme = ExtResource( 10 )
 text = "Quit"
 
@@ -768,8 +768,8 @@ one_shot = true
 [connection signal="pressed" from="CenterContainer/PlayerBody5/VBoxContainer/HBoxContainer/B_plus_mode" to="." method="_on_B_plus_mode_pressed"]
 [connection signal="value_changed" from="CenterContainer/PlayerBody6/VBoxContainer/HBoxContainer/HSlider" to="." method="_on_HSlider_value_changed"]
 [connection signal="value_changed" from="CenterContainer/PlayerBody6/VBoxContainer/HBoxContainer2/HSlider_SFX" to="." method="_on_HSlider_SFX_value_changed"]
-[connection signal="button_up" from="CenterContainer/PlayerBody4/B_Quit" to="." method="_on_B_Quit_button_up"]
 [connection signal="focus_exited" from="CenterContainer/PlayerBody4/B_Quit" to="." method="_on_B_Quit_focus_exited"]
+[connection signal="pressed" from="CenterContainer/PlayerBody4/B_Quit" to="." method="_on_B_Quit_pressed"]
 [connection signal="timeout" from="TimerResetPlayer" to="." method="_on_TimerResetPlayer_timeout"]
 [connection signal="timeout" from="TimerLaunchGame" to="." method="_on_TimerLaunchGame_timeout"]
 [connection signal="timeout" from="TimerInitPlayer" to="." method="_on_TimerInitPlayer_timeout"]
